@@ -1,0 +1,25 @@
+{
+  "name": "learnbackend",
+  "version": "1.0.0",
+  "description": "This repository is dedicated to practicing backend development using Node.js, Express.js, and MongoDB. It features implementation of RESTful APIs for common functionalities including notes, tasks, authentication, and blogging.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevStorm22/learnbackend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/DevStorm22/learnbackend/issues"
+  },
+  "homepage": "https://github.com/DevStorm22/learnbackend#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
