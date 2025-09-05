@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/DevStorm22/learnbackend#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "react-router-dom": "^7.8.2"
   }
 }
