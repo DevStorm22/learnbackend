@@ -15,6 +15,7 @@ function UserProvider({ children }) {
       const { data } = await axios.get(`${serverURL}/api/user`, {
         withCredentials: true,  //  send cookies with request
       });
+      console.log(data);
       setUserData(data);
     }
     catch (error) {

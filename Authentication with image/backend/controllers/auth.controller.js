@@ -74,9 +74,7 @@ const logIn = async (req, res) => {
     }
     // Generate token
     const token = await generateToken(user._id);
-    return res
-      .status(200)
-      .json({ token, user: { email: user.email, userName: user.userName } });
+    return res.status(200).json({ token, user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });

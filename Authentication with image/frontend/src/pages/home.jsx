@@ -6,7 +6,8 @@ function Home() {
 
   return (
     <div>
-      {userData ? `Hello, ${userData.user.firstName}` : "Loading..."}
+      {console.log(userData.user)}
+      {userData.user ? `Hello, ${userData.user.firstName}` : "Loading..."}
     </div>
   );
 }

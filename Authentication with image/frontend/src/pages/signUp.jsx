@@ -59,7 +59,7 @@ function signUp() {
       setPassword("");
       setFrontendImage(dp);
       setBackendImage(null);
-      navigate("/login");
+      navigate("/");
     } catch (err) {
       console.log(err.message);
     }
