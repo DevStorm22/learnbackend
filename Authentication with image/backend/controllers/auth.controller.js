@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import generateToken from "../configs/token.config.js";
-import uploadOnCloudinary from "./../configs/cloudinary.config.js";
+import uploadOnCloudinary from "../configs/cloudinary.config.js";
 
 const signUp = async (req, res) => {
   try {
@@ -94,4 +94,21 @@ const signOut = async (req, res) => {
   }
 };
 
-export { signUp, logIn, signOut };
+const getUser = async (req, res) => {
+  try {
+    const userId = req.userId;
+    if (!userId) {
+      return res.status(401).json({ message: "User not found" });
+    }
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User dose not exist" });
+    }
+    return res.status(200).json({ user });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export { signUp, logIn, signOut, getUser };

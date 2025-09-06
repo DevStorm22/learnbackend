@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import editImageIcon from "../assets/pencil-solid-full.svg";
 
 function signUp() {
-  const { serverURL } = useContext(UserContext);
+  const { serverURL, userData, setUserData, getUserdata } =
+    useContext(UserContext);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
@@ -48,6 +49,8 @@ function signUp() {
         { config, withCredentials: true } // withCredentials to include cookies in the request
       );
       console.log(data);
+      await getUserdata();
+      setUserData(data);
       alert("Sign Up Successful");
       setFirstName("");
       setLastName("");

@@ -6,7 +6,8 @@ import hideIcon from "../assets/eye-slash-solid-full.svg";
 import { useNavigate } from "react-router-dom";
 
 function logIn() {
-  const { serverURL } = useContext(UserContext);
+  const { serverURL, userData, setUserData, getUserdata } =
+    useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [viewPassword, setViewPassword] = useState(true);
@@ -15,7 +16,7 @@ function logIn() {
   const handlelogIn = async (e) => {
     e.preventDefault(); // Prevent form from refreshing the page
     try {
-      const data = await axios.post(
+      const { data } = await axios.post(
         // axios.post(url, data, config)
         // Use axios to make the POST request
         serverURL + "/api/login", // This is the URL to which the request is sent
@@ -28,9 +29,12 @@ function logIn() {
         // withCredentials to include cookies in the request
       );
       console.log(data);
+      await getUserdata();
+      setUserData(data);
       alert("Log In Successful");
       setEmail("");
       setPassword("");
+      navigate("/");
     } catch (err) {
       console.log(err.message);
     }
